@@ -12,3 +12,4 @@ Follow along and watch this space for delicious progress.
 
 SnapChef is cooking — and it's going to change the way you eat, move, and live.
 
+✨ _Eat Smart. Cook Fit. Live Better._ — with SnapChef.
