@@ -5,3 +5,10 @@
 Think of it as your personal kitchen assistant, fitness buddy, and health coach rolled into one.
 
 ---
+
+## 👀 Hungry for more?
+
+Follow along and watch this space for delicious progress.  
+
+SnapChef is cooking — and it's going to change the way you eat, move, and live.
+
