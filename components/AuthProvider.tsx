@@ -101,3 +101,101 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       }
     }
   };
+  const signInWithApple = async () => {
+    if (!isMounted.current) return;
+    
+    setIsLoading(true);
+    try {
+      await authService.signInWithApple();
+    } catch (error) {
+      console.error('Apple sign in error:', error);
+      throw error;
+    } finally {
+      if (isMounted.current) {
+        setIsLoading(false);
+      }
+    }
+  };
+
+  const signInWithTwitter = async () => {
+    if (!isMounted.current) return;
+    
+    setIsLoading(true);
+    try {
+      await authService.signInWithTwitter();
+    } catch (error) {
+      console.error('Twitter sign in error:', error);
+      throw error;
+    } finally {
+      if (isMounted.current) {
+        setIsLoading(false);
+      }
+    }
+  };
+
+  const signInWithPhone = async (phone: string, code: string) => {
+    if (!isMounted.current) return;
+    
+    setIsLoading(true);
+    try {
+      await authService.signInWithPhone(phone, code);
+    } catch (error) {
+      console.error('Phone sign in error:', error);
+      throw error;
+    } finally {
+      if (isMounted.current) {
+        setIsLoading(false);
+      }
+    }
+  };
+
+  const sendSMSVerification = async (phone: string) => {
+    try {
+      await authService.sendSMSVerification(phone);
+    } catch (error) {
+      console.error('SMS verification error:', error);
+      throw error;
+    }
+  };
+
+  const signOut = async () => {
+    if (!isMounted.current) return;
+    
+    setIsLoading(true);
+    try {
+      await authService.signOut();
+    } catch (error) {
+      console.error('Sign out error:', error);
+      throw error;
+    } finally {
+      if (isMounted.current) {
+        setIsLoading(false);
+      }
+    }
+  };
+
+  return (
+    <AuthContext.Provider value={{
+      user,
+      isLoading,
+      signIn,
+      signUp,
+      signInWithGoogle,
+      signInWithApple,
+      signInWithTwitter,
+      signInWithPhone,
+      sendSMSVerification,
+      signOut,
+    }}>
+      {children}
+    </AuthContext.Provider>
+  );
+}
+
+export function useAuth() {
+  const context = useContext(AuthContext);
+  if (context === undefined) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  return context;
+}
