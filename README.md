@@ -10,7 +10,7 @@ Think of it as your personal kitchen assistant, fitness buddy, and health coach 
 
 - 🧠 Built with **React Native + Expo**
 - 🍱 AI-powered food scanner (soon™)
-- 🏋️ Fitness tracking to support your health journey
+- 🏋️ Fitness tracking to support your health journey .
 
 ---
 
